@@ -1,3 +1,4 @@
+const passport = require("passport")
 const Usuario = require('../modules/Usuario');
 
 function login(req, res) {
@@ -18,15 +19,15 @@ function login(req, res) {
 }
 
 function agregarUsuario(req, res) {
-    const usuario = new Usuario(req.body)
-    const pass = req.body.password
+    const usuario = new Usuario(req.body);
+    const pass = req.body.password;
 
     usuario.crearContrasena(pass);
 
     usuario.save()
         .then(data => res.status(200).send(data))
-
 }
+
 function obtenerUsuarios(req, res) {
     if (!req.auth)
         res.sendStatus(401)

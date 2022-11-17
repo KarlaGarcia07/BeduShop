@@ -37,6 +37,7 @@ const SchemaUsuario = mongoose.Schema({
 SchemaUsuario.plugin(UniqueValidator, { message: "El usuario ya existe" })
 
 SchemaUsuario.methods.crearContrasena = function (password) {
+    console.log('password', password)
     this.salt = crypto.randomBytes(16).toString("hex");
     this.hash = crypto
         .pbkdf2Sync(password, this.salt, 10000, 512, "sha512")
