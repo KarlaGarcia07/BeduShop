@@ -5,7 +5,7 @@ const MenuSchema = mongoose.Schema({
     origen: String,
     tiempo: Number,
     proteina: Number,
-    carbohidrato: Number
+    carbo: Number
   },{
     collection: "Menus",
     timestamps: true

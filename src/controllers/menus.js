@@ -9,7 +9,6 @@ function obtenerMenus(req, res){
 // CREATE
 function crearMenu(req, res){
     const info = req.body;
-    console.log('info', info)
     const prod = new Menu(info)
     prod.save()
     .then(data => res.send(data))
@@ -27,14 +26,9 @@ function eliminarMenu(req,res){
 function modificarMenu(req, res){
     const saucer = req.params.platillo;
     const nuevaInfo = req.body;
-    Menu.findOne({platillo : saucer})
-    .then(menu => {
-        menu = req.body
-        menu.save()
-        .then( data => {
-            res.status(200).send(data);
-        })
-    })
+    Menu.findOneAndUpdate({platillo : saucer}, nuevaInfo)
+    .then(data => res.send(data))
+    .catch(err => res.status(500).send(err))
 }
 
 module.exports = {

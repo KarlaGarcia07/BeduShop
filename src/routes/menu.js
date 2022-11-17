@@ -1,4 +1,4 @@
-const routerP = require('express').Router();
+const routerM = require('express').Router();
 
 const {
     obtenerMenus,
@@ -7,9 +7,9 @@ const {
     eliminarMenu
 } = require('../controllers/menus');
 
-routerP.get('/',obtenerMenus)
-routerP.post('/', crearMenu)
-routerP.put('/:titulo', modificarMenu)
-routerP.delete('/', eliminarMenu)
+routerM.get('/',obtenerMenus)
+routerM.post('/', crearMenu)
+routerM.put('/:platillo', modificarMenu)
+routerM.delete('/', eliminarMenu)
 
-module.exports = routerP;
+module.exports = routerM;
